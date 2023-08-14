@@ -1,37 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WalletConnect Example</title>
-    <!-- Include Web3.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
-</head>
-<body>
-    <h1>WalletConnect Example</h1>
-    <button onclick="connect()">Connect Wallet</button>
-    <p>Your Wallet Address: <a class="walletaddress_a"></a></p>
-    <p>Your Bnb Balance:<a class="wallet_balance_a"></a></p>
-
-    <script>
-        /* To connect using MetaMask */
-        async function connect() {
-            const address_a = document.querySelector(".walletaddress_a");
-            const balance_a = document.querySelector(".wallet_balance_a");
-            if (window.ethereum) {
-                await window.ethereum.request({ method: "eth_requestAccounts" });
-                const web3 = new Web3(window.ethereum);
-                const accounts = await web3.eth.getAccounts();
-                const walletAddress = accounts[0];
-                console.log(`Wallet: ${walletAddress}`);
-                address_a.textContent = walletAddress;
-                const wallet_balance_in_wei = await web3.eth.getBalance(walletAddress);
-                const wallet_balance_in_ether = web3.utils.fromWei(wallet_balance_in_wei, 'ether');
-                balance_a.textContent = wallet_balance_in_ether;
-            } else {
-                console.log("No wallet");
-            }
-        }
-    </script>
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>My Website</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="images/icon.png" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            <H1>Hallo everyone</H1>
+            <a href="connect.html"><Button class="wallet_details_button">Wallet details</Button>   </a>
+        </header>
+    </body>
 </html>
